@@ -1,7 +1,50 @@
-Desigualdad Educativa Sonora
-==============================
+# Desigualdad Educativa en Sonora
 
-Análisis de la matrícula de escuelas públicas y privadas en Hermosillo para estudiar desigualdad educativa.
+## 📌 Descripción del Proyecto
+Este proyecto busca analizar **la evolución de la matrícula escolar en Sonora** en los últimos años para responder la pregunta:
+
+> **¿Ha aumentado la desigualdad educativa entre las escuelas públicas y privadas en Sonora de 2022 a 2025?**
+
+Para responder esta pregunta, cruzaremos datos de **alumnos inscritos** con datos de **escuelas registradas**, identificando tendencias de crecimiento o disminución de matrícula por tipo de sostenimiento (público / privado) y su distribución geográfica.
+
+---
+
+## 🎯 Pregunta de Investigación
+**Pregunta:**  
+¿Está aumentando la desigualdad educativa entre el sistema público y privado en Sonora en los últimos ciclos escolares (2022–2025)?
+
+**Hipótesis inicial:**  
+Se espera que la matrícula de escuelas privadas crezca proporcionalmente más que la matrícula en escuelas públicas, lo que podría reflejar un aumento de la brecha educativa.
+
+---
+
+## 🧑‍🤝‍🧑 Público Objetivo
+El producto final de este análisis (dashboard interactivo) está destinado a:
+- Investigadores y tomadores de decisiones en el área de **educación pública**.
+- Organizaciones de la sociedad civil interesadas en **equidad educativa**.
+- Periodistas y académicos que estudien la evolución del sistema educativo.
+
+---
+
+## 📂 Fuentes de Datos
+
+1. **Matrículas de Educación Básica en Sonora**  
+   Fuente: [Portal de Datos Abiertos de Sonora](https://datos.sonora.gob.mx/dataset/Matriculas)  
+   Descripción: Series de tiempo (2022–2025) con la matrícula de alumnos por nivel educativo, tipo de sostenimiento, municipio y otras variables.  
+   Frecuencia: Cuatrimestral.
+
+2. **Directorio de Escuelas**  
+   Fuente: [SIGED – SEP](https://www.siged.sep.gob.mx/SIGED/escuelas.html)  
+   Descripción: Catálogo actualizado de escuelas en México, con ubicación georreferenciada, nivel educativo y tipo de sostenimiento (público o privado).
+
+3. **Datos Económicos de Sonora**  
+   Fuente: INEGI (PIB estatal, indicadores socioeconómicos).  
+   Uso: Para correlacionar matrícula con desarrollo económico de la región.
+
+---
+
+## 🏗️ Estructura del Proyecto (Cookiecutter Data Science)
+
 
 Project Organization
 ------------
