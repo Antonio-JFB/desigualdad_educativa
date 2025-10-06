@@ -1,0 +1,39 @@
+{
+  "indicadores_municipales": [
+    {
+      "nombre": "grado_promedio_escolaridad",
+      "id_inegi": "1005000038",
+      "descripcion": "Grado promedio de escolaridad de la población de 15 y más años"
+    },
+    {
+      "nombre": "porcentaje_alfabetas",
+      "id_inegi": "1002000041",
+      "descripcion": "Porcentaje de personas de 15 y más alfabetas"
+    },
+    {
+      "nombre": "poblacion_asiste_escuela",
+      "id_inegi": "1005000012",
+      "descripcion": "Población de 5 años y más que asiste a la escuela"
+    },
+    {
+      "nombre": "total_viviendas_habitadas",
+      "id_inegi": "1003000001",
+      "descripcion": "Total de viviendas particulares habitadas"
+    },
+    {
+      "nombre": "viviendas_con_internet",
+      "id_inegi": "6207019042",
+      "descripcion": "Porcentaje de viviendas particulares habitadas que disponen de Internet"
+    },
+    {
+      "nombre": "viviendas_con_automovil",
+      "id_inegi": "6207129635",
+      "descripcion": "Porcentaje de viviendas particulares habitadas que disponen de Automóvil o camioneta"
+    },
+    {
+      "nombre": "poblacion_total",
+      "id_inegi": "1002000001",
+      "descripcion": "Población Total"
+    }
+  ]
+}
