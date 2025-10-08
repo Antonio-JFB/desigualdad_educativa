@@ -29,16 +29,17 @@ El producto final de este análisis (dashboard interactivo) está destinado a:
 ## 📂 Fuentes de Datos
 
 1. **Matrículas de Educación Básica en Sonora**  
-   Fuente: [Portal de Datos Abiertos de Sonora](https://datos.sonora.gob.mx/dataset/Matriculas)  
-   Descripción: Series de tiempo (2022–2025) con la matrícula de alumnos por nivel educativo, tipo de sostenimiento, municipio y otras variables.  
-   Frecuencia: Cuatrimestral.
+   Fuente: [SIGED – SEP](https://www.siged.sep.gob.mx/SIGED/escuelas.html) 
+	   [Plataforma Nacional de Datos abiertos](https://datos.gob.mx/dataset/registro_alumnado_personal_docente_educacion_basica_media_superior_formato_911) 
+   Descripción: Catálogo actualizado de escuelas en México, con ubicación georreferenciada, nivel educativo y tipo de sostenimiento (público o privado).
+   Frecuencia: Ciclo escolar.
 
 2. **Directorio de Escuelas**  
-   Fuente: [SIGED – SEP](https://www.siged.sep.gob.mx/SIGED/escuelas.html)  
-   Descripción: Catálogo actualizado de escuelas en México, con ubicación georreferenciada, nivel educativo y tipo de sostenimiento (público o privado).
+   Fuente: [Plataforma Nacional de Datos abiertos](https://datos.gob.mx/dataset/catalogo_centros_trabajo_sep)  
+   Descripción: Listado de centros educativos de la Secretaría de Educación Pública del estado de Sonora.
 
 3. **Datos Económicos de Sonora**  
-   Fuente: INEGI (PIB estatal, indicadores socioeconómicos).  
+   Fuente: INEGI (PIB estatal, indicadores socioeconómicos, información sobre educación).  
    Uso: Para correlacionar matrícula con desarrollo económico de la región.
 
 ---
