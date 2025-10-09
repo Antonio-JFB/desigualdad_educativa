@@ -1,0 +1,60 @@
+{
+  "indicadores_contexto": [
+    {
+      "nombre": "estatal_rezago_educativo",
+      "id_inegi": "6200240391",
+      "nivel_geografico": "estatal",
+      "fuente_api": "BISE",
+      "descripcion": "Porcentaje de la población de 15 y más con rezago educativo (Estatal)"
+    },
+    {
+      "nombre": "estatal_con_educacion_basica",
+      "id_inegi": "6200205239",
+      "nivel_geografico": "estatal",
+      "fuente_api": "BISE",
+      "descripcion": "Población de 15 y más con algún grado aprobado en educación básica (Estatal)"
+    },
+    {
+      "nombre": "estatal_poblacion_desocupada",
+      "id_inegi": "6200093973",
+      "nivel_geografico": "estatal",
+      "fuente_api": "BISE",
+      "descripcion": "Población desocupada - 15 años y más (Estatal)"
+    },
+    {
+      "nombre": "estatal_ingresos_hasta_1_salmin",
+      "id_inegi": "6200032080",
+      "nivel_geografico": "estatal",
+      "fuente_api": "BISE",
+      "descripcion": "Población ocupada con ingresos de hasta un salario mínimo - 15 años y más (Estatal)"
+    },
+    {
+      "nombre": "estatal_sector_informal",
+      "id_inegi": "6200093709",
+      "nivel_geografico": "estatal",
+      "fuente_api": "BISE",
+      "descripcion": "Población ocupada en el sector informal - 15 años y más (Estatal)"
+    },
+    {
+      "nombre": "estatal_pea",
+      "id_inegi": "6200093960",
+      "nivel_geografico": "estatal",
+      "fuente_api": "BISE",
+      "descripcion": "Población económicamente activa - 15 años y más (Estatal)"
+    },
+    {
+      "nombre": "estatal_itaee",
+      "id_inegi": "742102",
+      "nivel_geografico": "nacional",
+      "fuente_api": "BIE",
+      "descripcion": "Indicador Trimestral de la Actividad Económica Estatal (ITAEE), base 2018"
+    },
+    {
+      "nombre": "nacional_gasto_educacion_pib",
+      "id_inegi": "6207067825",
+      "nivel_geografico": "nacional",
+      "fuente_api": "BISE",
+      "descripcion": "Gasto nacional en educación total como porcentaje del PIB (Nacional)"
+    }
+  ]
+}

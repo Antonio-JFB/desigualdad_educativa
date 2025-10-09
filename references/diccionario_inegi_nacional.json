@@ -1,0 +1,14 @@
+{
+  "indicadores_nacionales": [
+    {
+      "nombre": "poblacion_economicamente_activa_estatal",
+      "id_inegi": "6200093960",
+      "descripcion": "Población económicamente activa - 15 años y más - Estatal"
+    },
+    {
+      "nombre": "gasto_educacion_pib",
+      "id_inegi": "6207067825",
+      "descripcion": "Gasto nacional en educación total como porcentaje del PIB"
+    }
+  ]
+}
