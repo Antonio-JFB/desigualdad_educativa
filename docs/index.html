@@ -5,258 +5,585 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>¿Basta con echarle ganas? — La realidad de estudiar en Sonora</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 :root {
-    --bg: #FAF9F7;
-    --text: #2A2A2A;
-    --headline: #111111;
-    --border: #E2E0DB;
+    --bg: #F5F8FA;
+    --text: #3A3A3A;
+    --headline: #1A1A1A;
+    --accent: #4A90E2;
+    --accent-glow: rgba(74, 144, 226, 0.2);
+    --border: #D6E4F0;
+    --card-bg: #FFFFFF;
+    --secondary: #7BB3E8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    margin: 0;
     font-family: "Inter", sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.85;
+    overflow-x: hidden;
 }
 
-/* Contenedor */
-.container {
-    max-width: 850px;
-    margin: auto;
+/* Fondo animado con ondas suaves */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #F5F8FA 0%, #E8F1F8 100%);
+}
+
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.03) 0%, transparent 70%);
+    border-radius: 45%;
+    animation: wave 25s infinite linear;
+}
+
+.wave:nth-child(2) {
+    animation: wave 20s infinite linear reverse;
+    opacity: 0.5;
+}
+
+.wave:nth-child(3) {
+    animation: wave 30s infinite linear;
+    opacity: 0.3;
+}
+
+@keyframes wave {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     padding: 50px 24px;
+    text-align: center;
 }
 
-/* Titular principal */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+    opacity: 0.4;
+    animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.5;
+    }
+}
+
 h1 {
     font-family: "Merriweather", serif;
-    font-size: 52px;
+    font-size: clamp(36px, 8vw, 72px);
     line-height: 1.1;
-    text-align: center;
-    font-weight: 700;
+    font-weight: 900;
     color: var(--headline);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out;
 }
 
-/* Línea bajo título */
-.title-underline {
-    width: 90px;
-    height: 3px;
-    background: var(--headline);
-    margin: 18px auto 35px auto;
-    opacity: 0.85;
+.hero-accent {
+    color: var(--accent);
+    text-shadow: 0 0 20px var(--accent-glow);
+    position: relative;
 }
 
-/* Subtítulo */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .subtitle {
-    text-align: center;
     font-family: "Merriweather", serif;
-    font-size: 21px;
-    color: #444;
-    max-width: 700px;
-    margin: auto;
-    margin-bottom: 35px;
-    line-height: 1.55;
-}
-
-/* Créditos */
-.byline {
-    text-align: center;
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
+    font-size: clamp(18px, 3vw, 24px);
     color: #666;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.byline {
+    font-size: 14px;
+    color: #888;
     margin-bottom: 40px;
+    animation: fadeInUp 1s ease-out 0.6s both;
 }
 
-/* Párrafos */
-p {
-    font-size: 19px;
-    color: var(--text);
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
 }
 
-/* SUBTÍTULOS (SIN NÚMEROS) */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+.scroll-indicator::before {
+    content: '↓';
+    font-size: 32px;
+    color: var(--accent);
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 24px;
+    position: relative;
+}
+
+/* Secciones con efecto reveal */
+.section {
+    margin: 120px 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Títulos de sección */
 h2 {
     font-family: "Merriweather", serif;
-    font-size: 34px;
+    font-size: clamp(28px, 5vw, 42px);
     color: var(--headline);
     font-weight: 700;
     line-height: 1.3;
-    margin-top: 70px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 20px;
 }
 
-/* Visualizaciones Flourish */
+h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+/* Párrafos mejorados */
+p {
+    font-size: 19px;
+    color: var(--text);
+    margin-bottom: 24px;
+    line-height: 1.85;
+}
+
+/* Cards para visualizaciones */
+.viz-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 40px;
+    margin: 40px 0;
+    border: 2px solid var(--border);
+    box-shadow: 0 8px 30px rgba(74, 144, 226, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.viz-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(74, 144, 226, 0.15);
+    border-color: var(--secondary);
+}
+
+/* Flourish embeds */
 .flourish-embed {
-    margin: 30px 0 50px 0;
+    margin: 20px 0;
     border-radius: 14px;
-    border: 1px solid var(--border);
-    background: white;
     overflow: hidden;
-    box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+    min-height: 400px;
 }
 
-/* Separador editorial */
+/* Stats destacados */
+.stat-highlight {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    color: white;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    margin: 0 4px;
+    box-shadow: 0 4px 12px var(--accent-glow);
+    transition: transform 0.2s ease;
+}
+
+.stat-highlight:hover {
+    transform: scale(1.05);
+}
+
+/* Separador elegante */
 .section-divider {
-    width: 60%;
-    height: 1px;
-    background: var(--border);
-    margin: 60px auto;
-    opacity: 0.7;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+    margin: 80px 0;
+    position: relative;
+}
+
+.section-divider::before {
+    content: '◆';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg);
+    padding: 0 20px;
+    color: var(--accent);
+    font-size: 20px;
+}
+
+/* Quote style */
+.quote-box {
+    background: linear-gradient(135deg, #EBF4FB 0%, #D6E4F0 100%);
+    border-left: 5px solid var(--accent);
+    padding: 35px 45px;
+    margin: 40px 0;
+    border-radius: 0 20px 20px 0;
+    font-size: 24px;
+    font-style: italic;
+    color: var(--text);
+    font-weight: 500;
+    box-shadow: 0 4px 20px rgba(74, 144, 226, 0.1);
 }
 
 /* Footer */
 footer {
-    margin-top: 80px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
+    margin-top: 120px;
+    padding: 40px 0;
+    border-top: 2px solid var(--border);
     text-align: center;
-    color: #777;
+    color: #888;
     font-size: 15px;
+    background: linear-gradient(to top, #EBF4FB, transparent);
+}
+
+footer a {
+    font-weight: 600;
+}
+
+footer a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+/* Progress bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(to right, var(--accent), var(--secondary));
+    z-index: 1000;
+    transition: width 0.1s ease;
+    box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 42px;
+    }
+    
+    .hero {
+        min-height: 80vh;
+    }
+    
+    .section {
+        margin: 80px 0;
+    }
+    
+    .viz-card {
+        padding: 20px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
 
-    <h1>¿Basta con echarle ganas?</h1>
-    <div class="title-underline"></div>
+<!-- Background Animation -->
+<div class="background-animation" id="bgAnimation">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+</div>
 
+<!-- Hero Section -->
+<div class="hero">
+    <h1>¿Basta con <span class="hero-accent">echarle ganas</span>?</h1>
     <div class="subtitle">
         La realidad de estudiar en Sonora: escolaridad, infraestructura, oferta privada y conectividad.
     </div>
-
     <div class="byline">
         Por <strong>Jesus Antonio Flores Briones</strong>, 
         <strong>Javier Alejandro Alonso Mozqueda</strong> 
         y <strong>Brayan Alexis Ramírez Camacho</strong>
     </div>
+    <div class="scroll-indicator"></div>
+</div>
 
+<div class="container">
 
-    <!-- INTRO SIN DROP CAP -->
-    <p>
-        "Si estudias, sales adelante". Esa es la promesa con la que crecemos. Nos han dicho que la educación es el gran igualador social, pero los datos revelan una realidad incómoda: en México, el piso no está parejo.
-    </p>
+    <!-- Intro -->
+    <div class="section">
+        <div class="quote-box">
+            "Si estudias, sales adelante"
+        </div>
+        
+        <p>
+            Esa es la promesa con la que crecemos. Nos han dicho que la educación es el gran igualador social, pero los datos revelan una realidad incómoda: en México, el piso no está parejo.
+        </p>
 
-    <p>
-        Y Sonora no es la excepción. Aquí, el lugar donde vives define tus oportunidades tanto o más que tu talento. En nuestro estado, el código postal pesa tanto como las ganas de aprender.
-    </p>
+        <p>
+            Y Sonora no es la excepción. Aquí, el lugar donde vives define tus oportunidades tanto o más que tu talento. En nuestro estado, el <span class="stat-highlight">código postal</span> pesa tanto como las ganas de aprender.
+        </p>
+    </div>
 
     <div class="section-divider"></div>
 
-    <!-- VISUAL 1 -->
-    <h2>La escolaridad revela la primera desigualdad</h2>
+    <!-- Sección 1 -->
+    <div class="section">
+        <h2>La escolaridad revela la primera desigualdad</h2>
 
-    <div class="flourish-embed flourish-map" data-src="visualisation/26412178">
-        <script src="https://public.flourish.studio/resources/embed.js"></script>
+        <div class="viz-card">
+            <div class="flourish-embed flourish-map" data-src="visualisation/26412178">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+
+        <p>
+            La primera pista está en la geografía. Mientras en Hermosillo el promedio educativo está muy cerca de la preparatoria terminada (<span class="stat-highlight">11.3 años</span>), basta con alejarse hacia la sierra para que esa cifra se desplome.
+        </p>
+
+        <p>
+            En muchos municipios, la primaria es el techo. Lo que vemos en el mapa no es solo distancia; es una frontera invisible que divide las oportunidades del estado.
+        </p>
     </div>
-
-    <p>
-        La primera pista está en la geografía. Mientras en Hermosillo el promedio educativo está muy cerca de la preparatoria terminada (11.3 años), basta con alejarse hacia la sierra para que esa cifra se desplome.
-    </p>
-
-    <p>
-        En muchos municipios, la primaria es el techo. Lo que vemos en el mapa no es solo distancia; es una frontera invisible que divide las oportunidades del estado.
-    </p>
 
     <div class="section-divider"></div>
 
-    <!-- VISUAL 2 -->
-    <h2>¿Faltan escuelas? La historia es más compleja</h2>
+    <!-- Sección 2 -->
+    <div class="section">
+        <h2>¿Faltan escuelas? La historia es más compleja</h2>
 
-    <div class="flourish-embed flourish-pictogram" data-src="visualisation/26416750">
-        <script src="https://public.flourish.studio/resources/embed.js"></script>
+        <div class="viz-card">
+            <div class="flourish-embed flourish-pictogram" data-src="visualisation/26416750">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+
+        <p>
+            "¿Por qué sucede esto? ¿Faltan escuelas en los pueblos?" Sorprendentemente, los datos muestran lo contrario.
+        </p>
+
+        <p>
+            Si miramos la cantidad de escuelas por habitante, municipios pequeños como La Colorada, Villa Pesqueira y Onavas superan por mucho a la capital.
+        </p>
+
+        <p>
+            Pero esto no significa necesariamente abundancia, sino un desafío logístico. Las poblaciones dispersas requieren muchos planteles pequeños para garantizar cobertura básica, mientras que en la ciudad la matrícula se concentra masivamente.
+        </p>
     </div>
-
-    <p>
-        “¿Por qué sucede esto? ¿Faltan escuelas en los pueblos?” Sorprendentemente, los datos muestran lo contrario.
-    </p>
-
-    <p>
-        Si miramos la cantidad de escuelas por habitante, municipios pequeños como La Colorada, Villa Pesqueira y Onavas superan por mucho a la capital.
-    </p>
-
-    <p>
-        Pero esto no significa necesariamente abundancia, sino un desafío logístico. Las poblaciones dispersas requieren muchos planteles pequeños para garantizar cobertura básica, mientras que en la ciudad la matrícula se concentra masivamente.
-    </p>
 
     <div class="section-divider"></div>
 
-    <!-- VISUAL 3 -->
-    <h2>El peso total recae sobre la educación pública</h2>
+    <!-- Sección 3 -->
+    <div class="section">
+        <h2>El peso total recae sobre la educación pública</h2>
 
-    <div class="flourish-embed flourish-chart" data-src="visualisation/26414985">
-        <script src="https://public.flourish.studio/resources/embed.js"></script>
+        <div class="viz-card">
+            <div class="flourish-embed flourish-chart" data-src="visualisation/26414985">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+
+        <p>
+            Más allá de la cantidad, está la diversidad de la oferta. En ciudades grandes existe un ecosistema mixto entre escuelas públicas y privadas.
+        </p>
+
+        <p>
+            Pero al mirar el resto del estado, este panorama cambia: en más de la mitad de los municipios de Sonora, el porcentaje de escuelas privadas es del <span class="stat-highlight">0%</span>.
+        </p>
+
+        <p>
+            En estas zonas, el sistema público asume toda la responsabilidad educativa, siendo el único proveedor disponible.
+        </p>
     </div>
-
-    <p>
-        Más allá de la cantidad, está la diversidad de la oferta. En ciudades grandes existe un ecosistema mixto entre escuelas públicas y privadas.
-    </p>
-
-    <p>
-        Pero al mirar el resto del estado, este panorama cambia: en más de la mitad de los municipios de Sonora, el porcentaje de escuelas privadas es del 0%.
-    </p>
-
-    <p>
-        En estas zonas, el sistema público asume toda la responsabilidad educativa, siendo el único proveedor disponible.
-    </p>
 
     <div class="section-divider"></div>
 
-    <!-- VISUALES 4 -->
-    <h2>La educación privada está concentrada en pocas manos</h2>
+    <!-- Sección 4 -->
+    <div class="section">
+        <h2>La educación privada está concentrada en pocas manos</h2>
 
-    <div class="flourish-embed flourish-pictogram" data-src="visualisation/26415661">
-        <script src="https://public.flourish.studio/resources/embed.js"></script>
+        <div class="viz-card">
+            <div class="flourish-embed flourish-pictogram" data-src="visualisation/26415661">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+
+        <div class="viz-card">
+            <div class="flourish-embed flourish-chart" data-src="visualisation/26413334">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+
+        <p>
+            La oferta privada se concentra en áreas urbanas con mayor desarrollo económico. El acceso a ciertos modelos educativos depende del código postal, no del talento.
+        </p>
     </div>
-
-    <div class="flourish-embed flourish-chart" data-src="visualisation/26413334">
-        <script src="https://public.flourish.studio/resources/embed.js"></script>
-    </div>
-
-    <p>
-        La oferta privada se concentra en áreas urbanas con mayor desarrollo económico. El acceso a ciertos modelos educativos depende del código postal, no del talento.
-    </p>
 
     <div class="section-divider"></div>
 
-    <!-- VISUAL 6 -->
-    <h2>La brecha digital es también una brecha educativa</h2>
+    <!-- Sección 5 -->
+    <div class="section">
+        <h2>La brecha digital es también una brecha educativa</h2>
 
-    <div class="flourish-embed flourish-scatter" data-src="visualisation/26415258">
-        <script src="https://public.flourish.studio/resources/embed.js"></script>
+        <div class="viz-card">
+            <div class="flourish-embed flourish-scatter" data-src="visualisation/26415258">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+
+        <p>
+            En el siglo XXI, los municipios con mayor conectividad también muestran mayores niveles de escolaridad. La brecha digital es, en realidad, una brecha de aprendizaje.
+        </p>
+
+        <p>
+            Hermosillo es una de las capitales más conectadas de México, pero este liderazgo no es uniforme: mientras la ciudad navega a alta velocidad, buena parte del estado sigue desconectado.
+        </p>
     </div>
-
-    <p>
-        En el siglo XXI, los municipios con mayor conectividad también muestran mayores niveles de escolaridad. La brecha digital es, en realidad, una brecha de aprendizaje.
-    </p>
-
-    <p>
-        Hermosillo es una de las capitales más conectadas de México, pero este liderazgo no es uniforme: mientras la ciudad navega a alta velocidad, buena parte del estado sigue desconectado.
-    </p>
 
     <div class="section-divider"></div>
 
-    <h2>Reflexión final</h2>
+    <!-- Reflexión final -->
+    <div class="section">
+        <h2>Reflexión final</h2>
 
-    <p>
-        Los datos nos muestran dos realidades, pero un mismo potencial. El talento está distribuido en todos los municipios de Sonora; las oportunidades, no.
-    </p>
+        <p>
+            Los datos nos muestran dos realidades, pero un mismo potencial. El talento está distribuido en todos los municipios de Sonora; las oportunidades, no.
+        </p>
 
-    <p>
-        Para fortalecer la educación en el estado, debemos ir más allá de las aulas físicas: llevar servicios, tecnología y conexión a cada rincón.
-        Porque nivelar el terreno no es solo infraestructura: es garantizar que el futuro de un estudiante dependa de su esfuerzo, y no de su ubicación.
-    </p>
+        <p>
+            Para fortalecer la educación en el estado, debemos ir más allá de las aulas físicas: llevar servicios, tecnología y conexión a cada rincón.
+            Porque nivelar el terreno no es solo infraestructura: es garantizar que el futuro de un estudiante dependa de su esfuerzo, y no de su ubicación.
+        </p>
+    </div>
 
     <footer>
-        Fuentes: SIGED – SEP • Censo de Población y Vivienda INEGI 2020
+        <p style="margin-bottom: 15px; font-weight: 500;">Fuentes de datos:</p>
+        <p>
+            <a href="https://www.siged.sep.gob.mx/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; margin: 0 15px; transition: color 0.3s ease;">
+                SIGED – SEP
+            </a>
+            •
+            <a href="https://www.inegi.org.mx/programas/ccpv/2020/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; margin: 0 15px; transition: color 0.3s ease;">
+                Censo de Población y Vivienda INEGI 2020
+            </a>
+        </p>
     </footer>
 
 </div>
+
+<script>
+// Progress bar
+function updateProgressBar() {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight - windowHeight;
+    const scrolled = window.scrollY;
+    const progress = (scrolled / documentHeight) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
+}
+
+// Reveal sections on scroll
+function revealSections() {
+    const sections = document.querySelectorAll('.section');
+    const windowHeight = window.innerHeight;
+    
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const revealPoint = windowHeight * 0.85;
+        
+        if (sectionTop < revealPoint) {
+            section.classList.add('visible');
+        }
+    });
+}
+
+// Event listeners
+window.addEventListener('scroll', () => {
+    updateProgressBar();
+    revealSections();
+});
+
+window.addEventListener('load', () => {
+    revealSections();
+    updateProgressBar();
+});
+</script>
 
 </body>
 </html>
